@@ -92,7 +92,7 @@ const AnalysisReport: React.FC<AnalysisReportProps> = ({ result }) => {
               <div className="flex items-center space-x-2">
                 <FileText className="h-4 w-4 text-gray-500" />
                 <span className="font-medium">Document Title:</span>
-                <span>{result.documentTitle}</span>
+                <span>FRD – {result.documentTitle}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <User className="h-4 w-4 text-gray-500" />
@@ -112,7 +112,11 @@ const AnalysisReport: React.FC<AnalysisReportProps> = ({ result }) => {
               </div>
               <div>
                 <span className="font-medium">Version:</span>
-                <span className="ml-2">PRD v1.0</span>
+                <span className="ml-2">FRD v1.0</span>
+              </div>
+              <div>
+                <span className="font-medium">Product:</span>
+                <span className="ml-2">e‑RUPI (NPCI)</span>
               </div>
               <div>
                 <span className="font-medium">Submission Type:</span>
@@ -135,7 +139,10 @@ const AnalysisReport: React.FC<AnalysisReportProps> = ({ result }) => {
             </div>
             <div className="p-3 bg-blue-50 rounded-lg">
               <strong>RBI Master Direction on Prepaid Payment Instruments</strong> (Sept 2021)
-              <br />Para 9.1 & 9.2 – Small‑PPI and Full‑KYC PPI limits & features
+              <br />• Para 9.1 & 9.2 – Small‑PPI and Full‑KYC PPI limits & features
+            </div>
+            <div className="p-3 bg-blue-50 rounded-lg">
+              <strong>RBI PPI FAQs & master circular</strong> – Expiry/refund provisions
             </div>
             <div className="p-3 bg-blue-50 rounded-lg">
               <strong>RBI KYC Master Direction</strong> – OTP verified mobile/OVD binding
@@ -144,7 +151,41 @@ const AnalysisReport: React.FC<AnalysisReportProps> = ({ result }) => {
               <strong>RBI Cybersecurity Framework</strong> – Log retention ≥5 years
             </div>
             <div className="p-3 bg-blue-50 rounded-lg">
+              <strong>RBI Ombudsman Scheme & DPSS grievance mandates</strong> – grievance SLA ≤30 days
+            </div>
+            <div className="p-3 bg-blue-50 rounded-lg">
               <strong>RBI AML/CFT Master Circular</strong> DBR.AML.BC.No.18/2016‑17 – SAR & monitoring obligations
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Scope of Review */}
+      <Card className="shadow-lg border-0 bg-white">
+        <CardHeader>
+          <CardTitle className="text-xl font-bold text-gray-900">2. Scope of Review</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div className="space-y-2">
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                <span>OTP, KYC, issuance, redemption, refund, cancellation flows</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span>Logging, settlement ingestion, audit journaling</span>
+              </div>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                <span>Fraud, AML/CTF, data privacy, grievance resolution</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                <span>NPCI certification and reconciliation processes</span>
+              </div>
             </div>
           </div>
         </CardContent>
@@ -197,8 +238,8 @@ const AnalysisReport: React.FC<AnalysisReportProps> = ({ result }) => {
           <div className="space-y-4">
             <div>
               <span className="font-medium">Risk Level:</span>
-              <Badge className={`ml-2 ${getRiskColor(result.riskLevel)}`}>
-                {result.riskLevel}
+              <Badge className={`ml-2 ${getRiskColor('Low–Moderate')}`}>
+                Low–Moderate
               </Badge>
             </div>
             <div>
@@ -242,6 +283,7 @@ const AnalysisReport: React.FC<AnalysisReportProps> = ({ result }) => {
             <div className="space-y-2 text-sm">
               <div><strong>Reviewed By:</strong> [Name], AVP – Compliance</div>
               <div><strong>Date:</strong> {result.analysisDate}</div>
+              <div><strong>Status:</strong></div>
               <div><strong>Valid Until:</strong> FY25–26 Q1 PCOMP submission deadline</div>
             </div>
             <div className="flex items-center justify-center">

@@ -42,7 +42,7 @@ const Index = () => {
     setTimeout(() => {
       const mockResult: AnalysisResult = {
         id: Date.now().toString(),
-        documentTitle: uploadedDocument.name.replace('.pdf', ''),
+        documentTitle: 'e‑RUPI Implementation',
         analysisDate: new Date().toLocaleDateString(),
         riskLevel: 'Moderate',
         complianceScore: 78,
@@ -55,6 +55,20 @@ const Index = () => {
             remediation: 'None'
           },
           {
+            area: 'OTP Redemption',
+            finding: 'OTP required for redemption flow',
+            regulation: 'NPCI Circular NPCI/UPI/2021‑22/002 Sec 6.2',
+            adequacy: 'Adequate',
+            remediation: 'None'
+          },
+          {
+            area: 'Expiry & Refund Mechanism',
+            finding: 'Auto-refund enabled on expiry or cancellation',
+            regulation: 'RBI PPI MD para 13.3 & FAQs',
+            adequacy: 'Adequate',
+            remediation: 'None'
+          },
+          {
             area: 'Issuance & Value Limits',
             finding: 'No explicit issuance cap set',
             regulation: 'RBI MD: ₹10k/month, ₹120k/year, ₹10k outstanding',
@@ -62,18 +76,46 @@ const Index = () => {
             remediation: 'Flag >₹5k issuance and enforce caps'
           },
           {
+            area: 'Audit Logging & Retention',
+            finding: 'Lifecycle capture + 5‑year log retention',
+            regulation: 'RBI Cybersecurity MD annex A; PPI MD log reqs',
+            adequacy: 'Adequate',
+            remediation: 'None'
+          },
+          {
             area: 'AML / SAR Requirements',
             finding: 'No SAR triggers defined',
             regulation: 'RBI AML Circular DBR.AML.BC.No.18 para 4.1',
             adequacy: 'Partial',
             remediation: 'Add abnormal issuance SAR logic'
+          },
+          {
+            area: 'Settlement & Reconciliation',
+            finding: 'Daily ingestion of NPCI settlement files with exception report',
+            regulation: 'NPCI spec & good practice (in FRD)',
+            adequacy: 'Adequate',
+            remediation: 'None'
+          },
+          {
+            area: 'Data Privacy & Security',
+            finding: 'TLS 1.2, HSM, certificate-based auth, log masking',
+            regulation: 'RBI Cybersecurity/Payment Security guidelines',
+            adequacy: 'Adequate',
+            remediation: 'None'
+          },
+          {
+            area: 'Grievance Handling',
+            finding: 'SLA ≤30 days, dashboard, Ombudsman support',
+            regulation: 'RBI Ombudsman Scheme & DPSS grievance TAT',
+            adequacy: 'Adequate',
+            remediation: 'None'
           }
         ],
         recommendations: [
-          'Implement issuance caps per RBI MD',
-          'Integrate SAR trigger thresholds',
-          'Enhance logging schema for flagged events',
-          'Update PCOMP self-attestation'
+          'Implement issuance caps per RBI MD; flag vouchers >₹5k for compliance review',
+          'Integrate SAR trigger thresholds; link to AML/CTF monitoring engine',
+          'Enhance logging schema to include flagged issuance events',
+          'Update PCOMP self-attestation to reflect the above enhancements'
         ]
       };
 
